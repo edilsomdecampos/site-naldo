@@ -1,0 +1,182 @@
+:root {
+    --preto-profundo: #0a0a0a;
+    --preto-fosco: #121212;
+    --ouro-metálico: #D4AF37;
+    --ouro-brilho: #f1d592;
+    --cinza-concreto: #2C2C2C;
+    --branco-platina: #E0E0E0;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--preto-profundo);
+    color: var(--branco-platina);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--preto-profundo);
+}
+
+.logo-container h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    color: var(--ouro-metálico);
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.subtitulo {
+    letter-spacing: 6px;
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.hero {
+    height: 85vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9)), 
+                url('assets/img/fachada-principal.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid var(--ouro-metálico);
+}
+
+.hero-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    color: var(--ouro-brilho);
+    text-transform: uppercase;
+}
+
+.btn-luxo {
+    padding: 20px 50px;
+    background: transparent;
+    color: var(--ouro-metálico);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid var(--ouro-metálico);
+    transition: 0.5s;
+}
+
+.btn-luxo:hover {
+    background: var(--ouro-metálico);
+    color: #000;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.galeria-section {
+    padding: 100px 5%;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.galeria-titulo {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    color: var(--ouro-metálico);
+    margin-bottom: 60px;
+    font-size: 2.2rem;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.item-obra {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    cursor: pointer;
+    border: 1px solid #1a1a1a;
+}
+
+.item-obra:hover {
+    transform: scale(1.02);
+    border-color: var(--ouro-metálico);
+}
+
+.item-obra::before {
+    content: attr(data-category);
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(10, 10, 10, 0.95);
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    border-left: 3px solid var(--ouro-metálico);
+    color: var(--branco-platina);
+    z-index: 5;
+    transition: 0.4s;
+}
+
+.wpp-float {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: #25D366;
+    color: #fff;
+    padding: 18px 35px;
+    border-radius: 4px; /* Quadrado fica mais luxuoso que redondo */
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.4s;
+}
+
+.wpp-float:hover {
+    transform: translateY(-10px);
+    background: #1da851;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.7rem;
+    color: #444;
+    border-top: 1px solid #1a1a1a;
+}
+
+@media (max-width: 768px) {
+    .logo-container h1 { font-size: 2rem; letter-spacing: 5px; }
+    .hero h2 { font-size: 1.8rem; }
+    .galeria-grid { grid-template-columns: 1fr; }
+    .wpp-float { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 0.8rem; }
+}

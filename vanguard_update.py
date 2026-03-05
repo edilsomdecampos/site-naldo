@@ -1,22 +1,19 @@
 import json
-import re
 
 def atualizar_vanguard():
-    print("🚀 Vanguard System v2.0: Iniciando limpeza e atualização...")
+    print("🚀 Vanguard System v3.0: Sincronização Blindada...")
     
     try:
-        # 1. Carregar os dados da 'colinha' (JSON)
         with open('obras_config.json', 'r', encoding='utf-8') as f:
             dados = json.load(f)
-        
         with open('index.html', 'r', encoding='utf-8') as f:
             html = f.read()
 
-        # Pegamos os dados do Card 01
         info = dados['card_01']
-
-        # 2. Criamos o bloco de código PERFEITO (sem sobras)
-        novo_bloco_tecnico = f"""<div class="card-engenharia">
+        
+        # Criamos o conteúdo técnico puro
+        novo_conteudo = f"""
+            <div class="card-engenharia">
                 <div class="video-box">
                     <video controls muted loop>
                         <source src="assets/video/{info['video']}" type="video/mp4">
@@ -34,18 +31,23 @@ def atualizar_vanguard():
                 </div>
             </div>"""
 
-        # 3. A MÁGICA: O Python agora limpa TUDO entre as tags de feed e coloca o novo
-        # Isso impede a duplicidade de uma vez por todas
-        padrao = r'(<div class="container-feed-tecnico" id="feed-python">)(.*?)(</div>)'
-        html_limpo = re.sub(padrao, rf'\1\n            {novo_bloco_tecnico}\n        \3', html, flags=re.DOTALL)
+        # Lógica de substituição por "âncoras" fixas
+        start_tag = '<div class="container-feed-tecnico" id="feed-python">'
+        end_tag = '</div>\n    </section>' # Esta âncora garante que ele não saia da seção
+        
+        parte_inicial = html.split(start_tag)[0]
+        parte_final = html.split(end_tag)[-1]
+        
+        # Remontagem perfeita do arquivo
+        html_final = f"{parte_inicial}{start_tag}{novo_conteudo}\n        </div>\n    </section>{parte_final}"
 
         with open('index.html', 'w', encoding='utf-8') as f:
-            f.write(html_limpo)
+            f.write(html_final)
         
-        print("✅ SUCESSO: Site limpo e atualizado. Sem duplicidade.")
+        print("✅ Sucesso: O site foi higienizado e atualizado.")
 
     except Exception as e:
-        print(f"❌ ERRO TÉCNICO: {e}")
+        print(f"❌ Erro no Script: {e}")
 
 if __name__ == "__main__":
     atualizar_vanguard()

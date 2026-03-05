@@ -11,8 +11,10 @@
       gtag('js', new Date());
       gtag('config', 'G-9WZ4J49F9M');
     </script>
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
 
@@ -45,23 +47,23 @@
 
     <section class="secao-tecnica" id="tecnico">
         <h3 class="galeria-titulo">Memorial Técnico de Execução</h3>
-        <p class="desc-tecnica-topo">Dados de performance extraídos diretamente de @perfqtpisos</p>
+        <p class="desc-tecnica-topo">Dados de performance extraídos via Vanguard System | @perfqtpisos</p>
         
         <div class="container-feed-tecnico" id="feed-python">
             <div class="card-engenharia">
                 <div class="video-box">
-                    <video controls muted loop>
-                        <source src="assets/video/" type="video/mp4">
+                    <video controls muted loop poster="assets/img/thumbnail-video.jpg">
+                        <source src="assets/video/novo_video.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="info-box-tecnica">
-                    <h4>Assentamento Técnico - Obra Recente</h4>
+                    <h4>Assentamento de Alto Padrão - Painel Calacatta</h4>
                     <ul class="lista-5-itens">
-                        <li><strong>01. Revestimento:</strong> Aguardando novo vídeo do Naldo...</li>
-                        <li><strong>02. Junta:</strong> -</li>
-                        <li><strong>03. Argamassa:</strong> -</li>
-                        <li><strong>04. Metragem:</strong> -</li>
-                        <li><strong>05. Paginação:</strong> -</li>
+                        <li><strong>01. Revestimento:</strong> Porcelanato Premium Calacatta (Polido)</li>
+                        <li><strong>02. Junta:</strong> Técnica de 1mm para continuidade de veios</li>
+                        <li><strong>03. Argamassa:</strong> ACIII Branca Especial para Grandes Formatos</li>
+                        <li><strong>04. Metragem:</strong> Aprox. 7.5m² de painel vertical</li>
+                        <li><strong>05. Paginação:</strong> Bookmatch Vertical com integração em ripado</li>
                     </ul>
                 </div>
             </div>
@@ -77,5 +79,15 @@
         <p>&copy; 2026 Naldo Estúdio de Revestimentos. Tecnologia Agência Edilsom.</p>
     </footer>
 
+    <script>
+        // Vanguard System: Animação de entrada fluida
+        gsap.from(".card-engenharia", {
+            duration: 1.5,
+            y: 50,
+            opacity: 0,
+            ease: "cubic-bezier(0.19, 1, 0.22, 1)", // Curva de Luxo
+            scrollTrigger: "#tecnico"
+        });
+    </script>
 </body>
 </html>

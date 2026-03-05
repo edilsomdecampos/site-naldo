@@ -1,10 +1,16 @@
 {
-    "card_01": {
-        "video": "", 
-        "piso": "Aguardando novo vídeo do Naldo...",
-        "junta": "-",
-        "argamassa": "-",
-        "metro": "-",
-        "pag": "-"
-    }
+  "project_id": "NALDO-LUXO-001",
+  "client": "Naldo Estúdio",
+  "tech_specs": {
+    "material": "Porcelanato Premium Calacatta",
+    "joint_size": "1mm",
+    "mortar": "ACIII White",
+    "area_m2": 7.5,
+    "layout_pattern": "Vertical Bookmatch Alignment"
+  },
+  "visual_dna": {
+    "animation_curve": "cubic-bezier(0.19, 1, 0.22, 1)",
+    "typography": "Cinzel / Montserrat",
+    "effects": ["high-gloss", "wood-integration", "grain-overlay"]
+  }
 }

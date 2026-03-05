@@ -1,10 +1,10 @@
 {
     "card_01": {
-        "video": "video_obra_atual.mp4",
-        "piso": "Porcelanato 120x120cm",
-        "junta": "1mm (Nível Industrial)",
-        "argamassa": "AC3 Branca Alta Performance",
-        "metro": "Verificada em Projeto",
-        "pag": "Alinhamento Transpassado"
+        "video": "obra_nova.mp4", 
+        "piso": "Porcelanato de Luxo",
+        "junta": "1mm",
+        "argamassa": "AC3 Branca",
+        "metro": "Verificar",
+        "pag": "Alinhamento"
     }
 }

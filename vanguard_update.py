@@ -2,20 +2,21 @@ import json
 import re
 
 def atualizar_vanguard():
-    print("🚀 Vanguard System: Iniciando atualização técnica...")
+    print("🚀 Vanguard System v2.0: Iniciando limpeza e atualização...")
     
     try:
-        # 1. Carregar Dados
+        # 1. Carregar os dados da 'colinha' (JSON)
         with open('obras_config.json', 'r', encoding='utf-8') as f:
             dados = json.load(f)
         
         with open('index.html', 'r', encoding='utf-8') as f:
             html = f.read()
 
-        # 2. Preparar o Novo Card (Baseado no seu HTML original)
+        # Pegamos os dados do Card 01
         info = dados['card_01']
-        novo_card = f"""
-            <div class="card-engenharia">
+
+        # 2. Criamos o bloco de código PERFEITO (sem sobras)
+        novo_bloco_tecnico = f"""<div class="card-engenharia">
                 <div class="video-box">
                     <video controls muted loop>
                         <source src="assets/video/{info['video']}" type="video/mp4">
@@ -33,18 +34,18 @@ def atualizar_vanguard():
                 </div>
             </div>"""
 
-        # 3. Injeção Cirúrgica (Protegendo a Galeria Estática)
+        # 3. A MÁGICA: O Python agora limpa TUDO entre as tags de feed e coloca o novo
+        # Isso impede a duplicidade de uma vez por todas
         padrao = r'(<div class="container-feed-tecnico" id="feed-python">)(.*?)(</div>)'
-        html_atualizado = re.sub(padrao, rf'\1{novo_card}\n        \3', html, flags=re.DOTALL)
+        html_limpo = re.sub(padrao, rf'\1\n            {novo_bloco_tecnico}\n        \3', html, flags=re.DOTALL)
 
-        # 4. Salvar
         with open('index.html', 'w', encoding='utf-8') as f:
-            f.write(html_atualizado)
+            f.write(html_limpo)
         
-        print("✅ Sucesso: Memorial Técnico atualizado sem alterar a Galeria de Fotos.")
+        print("✅ SUCESSO: Site limpo e atualizado. Sem duplicidade.")
 
     except Exception as e:
-        print(f"❌ Erro: {e}")
+        print(f"❌ ERRO TÉCNICO: {e}")
 
 if __name__ == "__main__":
     atualizar_vanguard()

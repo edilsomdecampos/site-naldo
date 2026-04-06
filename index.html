@@ -29,7 +29,7 @@
         <div class="hero-content">
             <h2>A Perfeição em Cada Milímetro</h2>
             <p class="hero-tagline">Especialista em Porcelanatos e Pedras Naturais</p>
-            <a href="#tecnico" class="btn-luxo">Ver Índices Técnicos</a>
+            <a href="#tecnico" class="btn-luxo">Ver Conclusão de Obra</a>
         </div>
     </section>
 
@@ -46,26 +46,23 @@
     </section>
 
     <section class="secao-tecnica" id="tecnico">
-        <h3 class="galeria-titulo">Memorial Técnico de Execução</h3>
-        <p class="desc-tecnica-topo">Dados de performance extraídos via Vanguard System | @perfqtpisos</p>
+        <h3 class="galeria-titulo">Destaque de Obra Concluída</h3>
+        <p class="desc-tecnica-topo">Vanguard System | Atualização de Portfólio @perfqtpisos</p>
         
         <div class="container-feed-tecnico" id="feed-python">
             <div class="card-engenharia">
                 <div class="video-box">
-                    <video controls muted loop poster="assets/img/thumbnail-video.jpg">
-                        <source src="assets/video/novo_video.mp4" type="video/mp4">
+                    <video controls autoplay muted loop playsinline poster="assets/img/thumbnail-video.jpg">
+                        <source src="assets/video/obra_atual.mp4" type="video/mp4">
                     </video>
                 </div>
-                <div class="info-box-tecnica">
-                    <h4>Assentamento de Alto Padrão - Painel Calacatta</h4>
-                    <ul class="lista-5-itens">
-                        <li><strong>01. Revestimento:</strong> Porcelanato Premium Calacatta (Polido)</li>
-                        <li><strong>02. Junta:</strong> Técnica de 1mm para continuidade de veios</li>
-                        <li><strong>03. Argamassa:</strong> ACIII Branca Especial para Grandes Formatos</li>
-                        <li><strong>04. Metragem:</strong> Aprox. 7.5m² de painel vertical</li>
-                        <li><strong>05. Paginação:</strong> Bookmatch Vertical com integração em ripado</li>
-                    </ul>
-                </div>
+                <div class="info-box-tecnica" style="padding: 20px; text-align: center;">
+                    <h4 style="color: #fff; margin-bottom: 10px;">Academia High Performance</h4>
+                    <p style="color: #ccc; font-size: 0.9em; line-height: 1.6;">
+                        Projeto finalizado com padrão de excelência Naldo Revestimentos. 
+                        Acompanhe no vídeo os detalhes de paginação, alinhamento e o acabamento premium entregue nesta obra de alto padrão.
+                    </p>
+                    </div>
             </div>
         </div>
     </section>
@@ -80,12 +77,11 @@
     </footer>
 
     <script>
-        // Vanguard System: Animação de entrada fluida
         gsap.from(".card-engenharia", {
             duration: 1.5,
             y: 50,
             opacity: 0,
-            ease: "cubic-bezier(0.19, 1, 0.22, 1)", // Curva de Luxo
+            ease: "expo.out", 
             scrollTrigger: "#tecnico"
         });
     </script>

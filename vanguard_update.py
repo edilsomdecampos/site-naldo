@@ -1,53 +1,48 @@
 import json
+import os
 
 def atualizar_vanguard():
-    print("🚀 Vanguard System v3.0: Sincronização Blindada...")
+    print("🚀 Vanguard System v4.1.2: Sincronização Cirúrgica...")
     
     try:
+        # 1. Carrega os dados do JSON (Mesmo que esteja vazio, o script entende)
         with open('obras_config.json', 'r', encoding='utf-8') as f:
             dados = json.load(f)
+        
+        info = dados.get('obra_info', {'titulo': 'Academia High Performance'})
+        
+        # 2. Prepara o novo bloco que será injetado no HTML
+        novo_bloco = f"""<h4 style="text-align: center; color: #fff; font-family: 'Cinzel', serif;">{info['titulo']}</h4>
+                <p style="text-align: center; color: #ccc; font-size: 0.9em; padding: 10px;">
+                    Projeto finalizado com padrão de excelência Naldo Revestimentos. 
+                    Assista ao resultado final desta execução de alto padrão.
+                </p>
+"""
+
+        # 3. Lê o seu HTML atual
         with open('index.html', 'r', encoding='utf-8') as f:
-            html = f.read()
+            html_puro = f.read()
 
-        info = dados['card_01']
-        
-        # Criamos o conteúdo técnico puro
-        novo_conteudo = f"""
-            <div class="card-engenharia">
-                <div class="video-box">
-                    <video controls muted loop>
-                        <source src="assets/video/{info['video']}" type="video/mp4">
-                    </video>
-                </div>
-                <div class="info-box-tecnica">
-                    <h4>Assentamento Técnico - Obra Recente</h4>
-                    <ul class="lista-5-itens">
-                        <li><strong>01. Revestimento:</strong> {info['piso']}</li>
-                        <li><strong>02. Junta:</strong> {info['junta']}</li>
-                        <li><strong>03. Argamassa:</strong> {info['argamassa']}</li>
-                        <li><strong>04. Metragem:</strong> {info['metro']}</li>
-                        <li><strong>05. Paginação:</strong> {info['pag']}</li>
-                    </ul>
-                </div>
-            </div>"""
+        # 4. AS TAGS DE CORTE (Onde o erro acontecia por estarem vazias)
+        tag_inicio = ""
+        tag_fim = ""
 
-        # Lógica de substituição por "âncoras" fixas
-        start_tag = '<div class="container-feed-tecnico" id="feed-python">'
-        end_tag = '</div>\n    </section>' # Esta âncora garante que ele não saia da seção
-        
-        parte_inicial = html.split(start_tag)[0]
-        parte_final = html.split(end_tag)[-1]
-        
-        # Remontagem perfeita do arquivo
-        html_final = f"{parte_inicial}{start_tag}{novo_conteudo}\n        </div>\n    </section>{parte_final}"
-
-        with open('index.html', 'w', encoding='utf-8') as f:
-            f.write(html_final)
-        
-        print("✅ Sucesso: O site foi higienizado e atualizado.")
+        # 5. A Lógica de Substituição Blindada
+        if tag_inicio in html_puro and tag_fim in html_puro:
+            parte_superior = html_puro.split(tag_inicio)[0]
+            parte_inferior = html_puro.split(tag_fim)[-1]
+            
+            # Monta o site de volta com a nova informação no meio
+            html_final = parte_superior + novo_bloco + parte_inferior
+            
+            with open('index.html', 'w', encoding='utf-8') as f:
+                f.write(html_final)
+            print("✨ SUCESSO: O site foi atualizado e o erro foi corrigido!")
+        else:
+            print("❌ ERRO: Não achei as tags no seu HTML. Verifique se você salvou o HTML que te mandei.")
 
     except Exception as e:
-        print(f"❌ Erro no Script: {e}")
+        print(f"❌ ERRO CRÍTICO NO MOTOR: {e}")
 
 if __name__ == "__main__":
     atualizar_vanguard()
